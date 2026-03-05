@@ -1,4 +1,6 @@
-/* Reset Basic */
+/* 1. IMPORTAÇÃO DE FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Inter:wght@400;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -7,147 +9,118 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #ffffff; /* Ultra-clean white background */
-    color: #000000;
+    background-color: #ffffff; /* Fundo branco limpo */
+    color: #0d0d0d;
     overflow-x: hidden;
 }
 
+/* 2. ESTRUTURA PRINCIPAL */
 .main-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* SIDEBAR LAYOUT */
 .sidebar {
-    width: 350px;
+    width: 380px; /* Um pouco mais larga para destacar a fonte Orbitron */
     height: 100vh;
-    padding: 50px;
+    padding: 60px;
     position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px); /* Efeito de vidro moderno */
+    border-right: 1px solid #f0f0f0;
     z-index: 100;
 }
 
-/* SATURNO ICON */
+/* 3. ÍCONE PRÓPRIO (SATURNO) */
 .saturn-container {
-    width: 180px;
-    margin-bottom: 30px;
+    width: 200px;
+    margin-bottom: 40px;
+    /* Diferente do Uzi, seu ícone pode ter um brilho roxo suave */
+    filter: drop-shadow(0 0 15px rgba(139, 92, 246, 0.3));
 }
 
 .saturn-icon {
     width: 100%;
-    mix-blend-mode: multiply; /* Removes black backgrounds from GIFs */
-    filter: grayscale(1) contrast(1.2);
+    mix-blend-mode: multiply;
 }
 
-/* TYPOGRAPHY */
+/* 4. LINKS COM IDENTIDADE ÚNICA (Orbitron + Roxo) */
 .nav-list {
     list-style: none;
 }
 
 .uzi-link {
-    font-size: 4rem;
+    font-family: 'Orbitron', sans-serif; /* Fonte espacial */
+    font-size: 3.2rem; /* Menor que a do Uzi para ser mais elegante */
     font-weight: 900;
-    color: #e0e0e0; /* Light grey as reference */
+    color: #1a1a1a; /* Texto mais escuro para contraste */
     text-decoration: none;
-    line-height: 0.85;
+    line-height: 1.1;
     display: block;
-    letter-spacing: -2px;
-    transition: all 0.3s ease;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
 }
 
 .uzi-link:hover, .uzi-link.active {
-    color: #8b5cf6; /* Your signature Purple */
-    transform: translateX(10px);
+    color: #8b5cf6; /* Seu roxo assinatura */
+    transform: skewX(-10px) translateX(15px); /* Animação de distorção espacial */
 }
 
-/* CONTENT AREA */
+/* 5. ÁREA DE CONTEÚDO */
 .content-area {
     flex: 1;
-    margin-left: 350px;
-    padding: 80px;
-    transition: opacity 0.4s ease;
+    margin-left: 380px;
+    padding: 100px;
+    background: radial-gradient(circle at top right, #fdfbff 0%, #ffffff 100%);
 }
 
-/* MERCH GRID */
+/* 6. GRADE DE PRODUTOS ESTILIZADA */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 50px;
-    margin-top: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    margin-top: 50px;
+}
+
+.product-card {
+    transition: transform 0.4s ease;
 }
 
 .product-card img {
     width: 100%;
-    background-color: #f9f9f9; /* Subtle grey for product background */
-    padding: 30px;
-    transition: transform 0.3s ease;
+    background: #fcfcfc;
+    border: 1px solid #eee;
+    border-radius: 30px; /* Bordas arredondadas (Uzi usa quadradas) */
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+    transition: all 0.4s ease;
 }
 
 .product-card:hover img {
-    transform: translateY(-8px);
+    transform: scale(1.03) rotate(1deg);
+    box-shadow: 0 20px 50px rgba(139, 92, 246, 0.1);
+    border-color: #8b5cf6;
 }
 
 .product-info h3 {
-    font-size: 11px;
-    text-transform: uppercase;
-    margin-top: 15px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    margin-top: 20px;
+    letter-spacing: 1px;
 }
 
 .product-info p {
-    font-size: 11px;
-    color: #999;
-}
-
-/* FOOTER */
-.sidebar-footer {
-    margin-top: 20px;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-.social-links a {
-    color: #ccc;
-    text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 12px;
+    color: #8b5cf6; /* Preço em roxo para identidade */
     font-weight: bold;
 }
 
-.copyright {
-    font-size: 9px;
-    color: #ddd;
-    text-transform: uppercase;
-    line-height: 1.5;
-}
-
-/* Additional styles for sections */
-.section-label {
-    font-weight: bold;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #000;
-    margin-bottom: 20px;
-}
-
-.email-input {
-    width: 100%;
-    max-width: 400px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-    color: #000;
-}
-
-/* RESPONSIVE DESIGN (Mobile) */
+/* 7. RESPONSIVIDADE (MOBILE) */
 @media (max-width: 1024px) {
     .main-container {
         flex-direction: column;
@@ -156,13 +129,19 @@ body {
         position: relative;
         width: 100%;
         height: auto;
-        padding: 30px;
+        padding: 40px 20px;
+        border-right: none;
+        border-bottom: 1px solid #f0f0f0;
     }
     .content-area {
         margin-left: 0;
-        padding: 30px;
+        padding: 40px 20px;
     }
     .uzi-link {
-        font-size: 3rem;
+        font-size: 2.2rem;
+        text-align: center;
+    }
+    .saturn-container {
+        margin: 0 auto 30px auto;
     }
 }
